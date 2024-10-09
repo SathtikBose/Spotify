@@ -1,18 +1,21 @@
-
 const logoReload = document.querySelector("#appLogo");
 const darkmodebutton = document.querySelector("#darkmodebutton");
 const conatiner = document.querySelector(".container");
 const songContainer = document.querySelectorAll(".songContainer");
 const coverImageDisplayBlock = document.querySelectorAll("#CoverImageDisplay");
 const songNameH3 = document.querySelectorAll(".songName");
-const footerNavContainer = document.querySelector(".footerNav");
-const ReferenceContainer = document.querySelector(".reference");
-const languageUsedContainer = document.querySelector(".languageUsed");
-const ownerTextContainer = document.querySelector(".ownerText");
 const menuButton = document.querySelector("#OpenMenuButton");
 const closeButton = document.querySelector("#closeMenuButton");
 const DispayMenu = document.querySelector(".displayMenu");
 const MainContainer = document.querySelector("#MainContainer")
+const playAheadCoverImage = document.querySelector('#songCoverImagePlaying');
+const playAheadSongName = document.querySelector('#songNamePlaying');
+const playAheadSongBar = document.querySelector('#songPlayBar');
+const playAheadSongTime = document.querySelector('#songTimePlaying');
+const playAheadContainer = document.querySelector('.playAheadContainer');
+const footercontainer = document.querySelector('footer');
+let songTotal;
+let currentSongTime;
 
 
 
@@ -21,10 +24,6 @@ logoReload.addEventListener("click",()=>{
 });
 
 darkmodebutton.classList.add("fa-sun");
-footerNavContainer.classList.add("footerDataDark");
-ReferenceContainer.classList.add("footerDataDark");
-languageUsedContainer.classList.add("footerDataDark");
-ownerTextContainer.classList.add("footerDataDark");
 
 
 
@@ -39,14 +38,8 @@ darkmodebutton.addEventListener("click",()=>{
         songContainer.forEach((songCard) =>{
             songCard.style.backgroundColor = "rgb(45, 42, 42)";
         });
-        footerNavContainer.classList.add("footerDataDark");
-        ReferenceContainer.classList.add("footerDataDark");
-        languageUsedContainer.classList.add("footerDataDark");
-        ownerTextContainer.classList.add("footerDataDark");
-        footerNavContainer.classList.remove("footerDatalight");
-        ReferenceContainer.classList.remove("footerDatalight");
-        languageUsedContainer.classList.remove("footerDatalight");
-        ownerTextContainer.classList.remove("footerDatalight");
+        playAheadContainer.style.backgroundColor = "#181818";
+        footercontainer.style.background = "#181818"
     }
     else{
         document.body.style.backgroundColor = "white";
@@ -58,14 +51,8 @@ darkmodebutton.addEventListener("click",()=>{
         songContainer.forEach((songCard) =>{
             songCard.style.backgroundColor = "rgb(255, 196, 245)";
         });
-        footerNavContainer.classList.add("footerDatalight");
-        ReferenceContainer.classList.add("footerDatalight");
-        languageUsedContainer.classList.add("footerDatalight");
-        ownerTextContainer.classList.add("footerDatalight");
-        footerNavContainer.classList.remove("footerDataDark");
-        ReferenceContainer.classList.remove("footerDataDark");
-        languageUsedContainer.classList.remove("footerDataDark");
-        ownerTextContainer.classList.remove("footerDataDark");
+        playAheadContainer.style.backgroundColor = "white";
+        footercontainer.style.backgroundColor = "white";
     }
 });
 
@@ -156,6 +143,34 @@ MainContainer.addEventListener('click' , ()=> {
     }
 })
 
+const PlayAheadData = (index) => {
+    playAheadCoverImage.src = coverImagesPath[index];
+    playAheadSongName.textContent = songName[index];
+}
+
+const audioTime = (songTotalTime) => {
+    console.log(songTotalTime);
+}
+
+const songData = (index,audio) => {
+    const DataAudio = new Audio(songsPath[index]);
+    DataAudio.addEventListener('loadedmetadata',()=>{
+        songTotal = DataAudio.duration.toFixed(0);
+    })
+    audio.addEventListener('timeupdate',()=>{
+        currentSongTime = audio.currentTime.toFixed(0);
+        let songPercent = ((currentSongTime/songTotal) *100);
+        playAheadSongTime.textContent = currentSongTime;
+        playAheadSongBar.value = songPercent;
+        const minutes = Math.floor(currentSongTime/60);
+        const remaningSec = currentSongTime % 60;
+        const fomatedsec = remaningSec < 10 ? `0${remaningSec}` : remaningSec;
+        playAheadSongTime.textContent = `${minutes} : ${fomatedsec}`;
+        
+    })
+    
+}
+
 
 
 const audios = songsPath.map(song => new Audio(song));
@@ -176,19 +191,22 @@ playButtons.forEach((button , index)=> {
             audio.play();
             button.classList.add('fa-circle-pause');
             button.classList.remove('fa-circle-play');
-            
+            PlayAheadData(index);
+            songData(index,audio);
         } else {
             audio.pause();
             button.classList.add('fa-circle-play');
             button.classList.remove('fa-circle-pause');
         }
+        playAheadSongBar.addEventListener('input',()=> {
+            const setAudioTime = (songTotal * playAheadSongBar.value)/100;
+            audio.currentTime = setAudioTime; 
+        })
+
     });
+
+
 });
-
-
-
-
-
 
 
 
