@@ -9,7 +9,6 @@ header{
     height: 70px;
     background-color: #00BF63;
     justify-content: space-between;
-    border-radius: 50px;
 }
 
 .appLogo{
@@ -18,7 +17,6 @@ header{
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    border-radius: 50px;
 }
 
 .navDiv{
@@ -79,6 +77,7 @@ header{
     padding-top: 20px;
     padding-bottom: 20px;
     border-radius: 20px;
+    margin-bottom: 100px;
 }
 
 .songContainer{
@@ -120,71 +119,62 @@ header{
     margin-top: -30px;
     cursor: pointer;
 }
-
-.footerContainer{
+footer{
+    background-color: #181818;
     width: 100%;
-    height: 300px;
-    display: flex;
+    height: 72px;
+    position: fixed;
+    bottom: 0;
     justify-content: space-evenly;
     align-items: center;
-    font-weight: bold;
+}
+.playAheadContainer{
+    width: 95%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.songDataContainer{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+}
+#songCoverImagePlaying{
+    width: 50px;
+    height: 50px;
+}
+#songNamePlaying{
+    height: 100%;
+    width: 50%;
+    text-wrap: wrap;
+    font-size: 20px;
+}
+.songPlayAhead{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1%;
+}
+#songPlayBar{
+    width: 100%;
+}
+#songTimePlaying{
+    width: 5%;
+}
+.songControlButton{
+    display: flex;
+    justify-content: space-between;
+    width: 10%;
     font-size: 18px;
 }
-
-.footerNav{
-    width: 20%;
-    height: 95%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-.reference{
-    width: 20%;
-    height: 95%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-.languageUsed{
-    width: 20%;
-    height: 95%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-.ownerText{
-    width: 20%;
-    height: 95%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.footerDataDark{
-    border-left: 2px solid white;
-    border-right: 2px solid white;
-}
-.footerDatalight{
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-}
-
-.footerContainer h3{
+.songControlButton i{
     cursor: pointer;
 }
-.footerContainer h3:hover,h2:hover ,p:hover{
-    text-decoration: underline;
-    transition: 1s;
-    transform: scale(1.2);
-    cursor: pointer;
-}
+
 
 
 
@@ -246,26 +236,5 @@ header{
     .songContainer:hover{
         transform: none;
         transition: none;
-    }
-    .footerContainer{
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-    .footerNav,.reference,.languageUsed{
-        width: 100%;
-        display: none;
-    }
-    .ownerText{
-        width: 100%;
-        font-size: 12px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .ownerText:hover{
-        transform: none;
-        text-decoration: none;
     }
 }
