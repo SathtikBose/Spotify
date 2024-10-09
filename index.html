@@ -100,31 +100,16 @@
         </div>
     </main>
     <footer>
-        <div class="footerContainer">
-            <div class="footerNav">
-                <h3>Home</h3>
-                <h3>About</h3>
-                <h3>Contact</h3>
-                <h3>Support</h3>
+        <div class="playAheadContainer">
+            <div class="songDataContainer">
+                <img src="images/spotify-logo.png" id="songCoverImagePlaying">
+                <h3 id="songNamePlaying">Song Name </h3>
             </div>
-            <div class="reference">
-                <h3>MDN Web Docs</h3>
-                <h3>Google</h3>
-                <h3>Youtube</h3>
-                <h3>Chatgpt</h3>
-            </div>
-            <div class="languageUsed">
-                <h3>Html</h3>
-                <h3>Css</h3>
-                <h3>Java Script</h3>
-            </div>
-            <div class="ownerText">
-                <h3>Made By</h3>
-                <h2>Sathtik Bose</h2>
-                <p>sathtikbose@gmail.com</p>
+            <div class="songPlayAhead">
+                <input type="range" id="songPlayBar" min="0" max="100" value="0">
+                <h4 id="songTimePlaying">0:0</h4>
             </div>
         </div>
-        <hr>
     </footer>
     <script src="script.js"></script>
 </body>
