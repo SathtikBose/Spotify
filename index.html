@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="shortcut icon" href="images/spotify-logo.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="logoContainer" id="logoReload"></div>
+        <div class="NavContainer">
+            <h3>Home</h3>
+            <h3>About</h3>
+            <h3>Contact</h3>
+            <h3>Support</h3>
+        </div>
+        <div class="ModeContainer">
+            <i class="fa-solid fa-sun" id="modeButton"></i>
+            <i class="fa-solid fa-bars" id="menuOpenButton"></i>
+        </div>
+        <div class="displayMenu">
+            <div class="menuButtonContainer">
+                <i class="fa-solid fa-x" id="menuCloseButton"></i>
+            </div>
+            <div class="navPanelContainer">
+                <h3>Home</h3>
+                <h3>About</h3>
+                <h3>Contact</h3>
+                <h3>Support</h3>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="songsContainer">
+            <div class="songCardContainer">
+                <img id="songCoverImage">
+                <h3 id="songName"></h3>
+                <i class="fa-solid fa-play" id="songPlayButton"></i>
+            </div>
+            <div class="songCardContainer">
+                <img id="songCoverImage">
+                <h3 id="songName"></h3>
+                <i class="fa-solid fa-play" id="songPlayButton"></i>
+            </div>
+            <div class="songCardContainer">
+                <img id="songCoverImage">
+                <h3 id="songName"></h3>
+                <i class="fa-solid fa-play" id="songPlayButton"></i>
+            </div>
+            <div class="songCardContainer">
+                <img id="songCoverImage">
+                <h3 id="songName"></h3>
+                <i class="fa-solid fa-play" id="songPlayButton"></i>
+            </div>
+            <div class="songCardContainer">
+                <img id="songCoverImage">
+                <h3 id="songName"></h3>
+                <i class="fa-solid fa-play" id="songPlayButton"></i>
+            </div>
+            <div class="songCardContainer">
+                <img id="songCoverImage">
+                <h3 id="songName"></h3>
+                <i class="fa-solid fa-play" id="songPlayButton"></i>
+            </div>
+            <div class="songCardContainer">
+                <img id="songCoverImage">
+                <h3 id="songName"></h3>
+                <i class="fa-solid fa-play" id="songPlayButton"></i>
+            </div>
+            <div class="songCardContainer">
+                <img id="songCoverImage">
+                <h3 id="songName"></h3>
+                <i class="fa-solid fa-play" id="songPlayButton"></i>
+            </div>
+            <div class="songCardContainer">
+                <img id="songCoverImage">
+                <h3 id="songName"></h3>
+                <i class="fa-solid fa-play" id="songPlayButton"></i>
+            </div>
+            <div class="songCardContainer">
+                <img id="songCoverImage">
+                <h3 id="songName"></h3>
+                <i class="fa-solid fa-play" id="songPlayButton"></i>
+            </div>
+            <div class="songCardContainer">
+                <img id="songCoverImage">
+                <h3 id="songName"></h3>
+                <i class="fa-solid fa-play" id="songPlayButton"></i>
+            </div>
+            <div class="songCardContainer">
+                <img id="songCoverImage">
+                <h3 id="songName"></h3>
+                <i class="fa-solid fa-play" id="songPlayButton"></i>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="playAheadDataContainer">
+            <img id="playAheadSongCover">
+            <h3 id="playAheadSongName"></h3>
+        </div>
+        <div class="playAheadSongRunContainer">
+            <input type="range" id="playAheadSongBar" min="0" , max="100" value="0"> 
+            <h3 id="playAheadSongCurrentTime">0:00</h3>
+        </div>
+        <div class="playAheadButtonContainer">
+            <i class="fa-solid fa-backward-step" id="playAheadBackwardButton"></i>
+            <i class="fa-solid fa-circle-play" id="playAheadPlayButton"></i>
+            <i class="fa-solid fa-forward-step" id="playAheadForwardButton"></i>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
